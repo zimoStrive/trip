@@ -1,5 +1,7 @@
 # trip 一些难点
 
+
+## 要点一
 1. tabbar 1.0 是手搭建 ，2.0 是组件库搭建
 
 2. 有些页面不显示 tabbar(两种做法)
@@ -14,5 +16,10 @@
         background: #fff;
       }
       ```
+
+## 要点二
+
+home下的content展示区域
+![](./images/1.png)
 
 

@@ -40,7 +40,7 @@ const indexList = computed(() =>{
 
 //监听城市的点击
 const router = useRouter()
-const cityStore = useCityStore
+const cityStore = useCityStore()
 const cityClick = (city)=>{
     // 城市信息保存在city的store
     cityStore.currentCity = city
