@@ -1,6 +1,6 @@
 <template>
   <div class="message">
-    <h2>message</h2>
+    <h2>消息页</h2>
   </div>
 </template>
 

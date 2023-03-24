@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="homeRef">
     <navBar />
 
     <div class="banner">
@@ -22,6 +22,8 @@
   </div>
 </template>
 
+<script></script>
+
 <script setup>
 import useHomeStore from "@/stores/modules/home";
 import navBar from "./cpns/nav-bar.vue";
@@ -30,12 +32,14 @@ import category from "./cpns/category.vue";
 import content from "./cpns/content.vue";
 import searchBar from "@/components/search-bar/index.vue";
 import useScroll from "@/hooks/useScroll";
-import { watch, ref, computed } from "vue";
+import { watch, ref, computed, onActivated } from "vue";
 
 const homeStore = useHomeStore();
 homeStore.fetchHomeHotSuggests();
 homeStore.fetchHomeCategories();
 homeStore.fetchHomeHouseList();
+
+const homeRef = ref();
 
 /* const add = ()=>{
   homeStore.fetchHomeHouseList()
@@ -53,7 +57,8 @@ homeStore.fetchHomeHouseList();
 }) */
 
 //第二种方式
-const { isReachBottom, scrollTop } = useScroll();
+const { isReachBottom, scrollTop } = useScroll(homeRef);
+
 watch(isReachBottom, (newvalue) => {
   if (newvalue) {
     homeStore.fetchHomeHouseList().then(() => {
@@ -74,11 +79,22 @@ watch(scrollTop, (newVal) => {
 const showSearch = computed(() => {
   return scrollTop.value > 360;
 });
+
+// 跳转回home时, 保留原来的位置
+onActivated(() => {
+  console.log(scrollTop.value);
+  homeRef.value?.scrollTo({
+    top: scrollTop.value,
+  });
+});
 </script>
 
 <style lang="less" scoped>
 .home {
-  padding-bottom: 60px;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-bottom: 60px 0px;
 }
 .banner img {
   width: 100%;

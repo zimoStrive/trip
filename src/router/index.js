@@ -9,6 +9,7 @@ const router = createRouter({
             
         },
         {
+            name:'home',
             path:'/home',
             component:() =>import("@/views/home/index.vue")
         },
@@ -34,6 +35,13 @@ const router = createRouter({
         {
             path:'/search',
             component:() =>import("@/views/search/index.vue"),
+            meta:{
+                hideTabbar:true
+            }
+        },
+        {
+            path:'/detail/:id',
+            component:() =>import("@/views/detail/index.vue"),
             meta:{
                 hideTabbar:true
             }

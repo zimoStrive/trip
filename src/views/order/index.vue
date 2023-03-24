@@ -1,6 +1,6 @@
 <template>
   <div class="order">
-    <h2>order</h2>
+    <h2>订单页</h2>
   </div>
 </template>
 
