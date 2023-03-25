@@ -52,7 +52,7 @@ import { throttle } from 'lodash'
 
     onMounted(() => {
         if (elRef) el = elRef.value
-        console.log(elRef.value)
+        //console.log(elRef.value)
         el.addEventListener('scroll', scrollListenerHandler)
     })
 

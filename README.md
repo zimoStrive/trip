@@ -27,3 +27,19 @@ home下的content展示区域
 在service/request/index
 在pinia中main模块中定义loading变量，供给个页面使用。main模块主要作用是共享全局的信息，比如token，日期，loading
 ![](./images/2.png)
+
+
+## 轮播图分页管理
+![](./images/3.png)
+
+![](./images/4.png)
+
+## 详细页面
+![](./images/5.png)
+
+
+## tabControl 难点
+![](./images/6.png)
+
+## 监听元素 （下拉到底，监听一定高度显示tab）
+![](./images/7.png)
